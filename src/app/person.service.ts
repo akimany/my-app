@@ -5,6 +5,7 @@ import { PEOPLE } from './somePeople';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PersonService {
 
   constructor() { }

@@ -11,14 +11,18 @@ import { PersonService } from '../person.service';
 
 export class SomePeopleComponent implements OnInit {
   // so here class has access to this data used in a loop in the html as people
-  people = Person[];
   selectedPerson: Person;
+  people = Person[];
 
   constructor(private personService: PersonService) { }
-  
+
+  getPeople(): void {
+    this.people = this.personService.getPeople()
+  }
 
 
   ngOnInit() {
+    this.getPeople();
   }
 
   onSelect(person: Person): void {
