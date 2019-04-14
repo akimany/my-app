@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Person } from './person';
 import { PEOPLE } from './somePeople';
 import { Observable, of } from 'rxjs';
+import { MessageService } from './message.service'
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,10 @@ import { Observable, of } from 'rxjs';
 
 export class PersonService {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   getPeople(): Observable<Person[]> {
+    this.messageService.add('Person service: fetched people names')
     return of(PEOPLE);
   }
 

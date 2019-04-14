@@ -16,7 +16,8 @@ export class SomePeopleComponent implements OnInit {
   constructor(private personService: PersonService) {}
 
   getPeople(): void {
-    this.people = this.personService.getPeople();
+    this.personService.getPeople()
+        .subscribe(people => this.people = people)
   }
 
   ngOnInit() {
